@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>[hidden]{display:none!important}body{margin:0}img{max-width:100%}</style>
+<title>Shedwell Pet Hair Roller</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="The reusable pet hair roller. No sticky sheets, no refills. Roll it across the couch, open the lid, empty the fur.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: a two-column buy box (product drawing left, choices right) that stacks on phones,
+   then single-column bands. Policy pages are separate views switched by #hash. */
+:root {
+  --bg: #F7F9F8;
+  --surface: #FFFFFF;
+  --ink: #15241E;
+  --muted: #56665F;
+  --line: #D9E2DE;
+  --forest: #1F4D3A;
+  --forest-ink: #FFFFFF;
+  --mustard: #E0A526;
+  --mustard-soft: #FBF1D9;
+  --sage: #E6EFEA;
+  --warn-bg: #FFF4D6;
+  --warn-ink: #5A4100;
+  --font-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --step--1: 0.875rem;
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: 1.6rem;
+  --step-3: 2.2rem;
+  --step-4: clamp(2.3rem, 5.5vw, 3.6rem);
+  --radius: 14px;
+  --wrap: 1120px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1714; --surface: #16211C; --ink: #E7EFEB; --muted: #9FB1A8; --line: #2A3A33;
+    --forest: #6FC29B; --forest-ink: #0B1511; --mustard: #F0BC4C; --mustard-soft: #2C2512;
+    --sage: #1B2A23; --warn-bg: #3A2F10; --warn-ink: #FBE3A6; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1714; --surface: #16211C; --ink: #E7EFEB; --muted: #9FB1A8; --line: #2A3A33;
+  --forest: #6FC29B; --forest-ink: #0B1511; --mustard: #F0BC4C; --mustard-soft: #2C2512;
+  --sage: #1B2A23; --warn-bg: #3A2F10; --warn-ink: #FBE3A6; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: var(--step-0); line-height: 1.6;
+}
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; text-wrap: balance; margin: 0; }
+h1 { font-size: var(--step-4); font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: var(--step-3); font-weight: 700; letter-spacing: -0.01em; }
+h3 { font-size: var(--step-1); font-weight: 700; }
+p { margin: 0; }
+a { color: var(--forest); }
+a:focus-visible, button:focus-visible, input:focus-visible + label, summary:focus-visible {
+  outline: 3px solid var(--mustard); outline-offset: 3px; border-radius: 6px;
+}
+.wrap {
+  max-width: var(--wrap); margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.eyebrow { font-size: var(--step--1); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: var(--muted); }
+
+/* announcement + header */
+.announce { background: var(--forest); color: var(--forest-ink); font-size: var(--step--1); text-align: center; }
+.announce .wrap { padding-block: 8px; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+header.site {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: var(--surface); border-bottom: 1px solid var(--line);
+}
+header.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; flex-wrap: wrap; }
+.logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-family: var(--font-display); font-weight: 800; font-size: 1.45rem; letter-spacing: -0.02em; }
+.logo svg { width: 30px; height: 30px; }
+nav.main { display: flex; gap: 20px; flex-wrap: wrap; }
+nav.main a { color: var(--ink); text-decoration: none; font-weight: 700; font-size: var(--step--1); }
+nav.main a:hover { color: var(--forest); text-decoration: underline; }
+
+.preview-note { background: var(--warn-bg); color: var(--warn-ink); font-size: var(--step--1); }
+.preview-note .wrap { padding-block: 10px; }
+
+/* hero / buy box */
+.hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; padding-block: 48px 56px; align-items: start; }
+.gallery { background: var(--sage); border-radius: var(--radius); padding: 24px; display: grid; gap: 16px; }
+.gallery svg { width: 100%; height: auto; display: block; max-width: 100%; }
+.gallery .caption { font-size: var(--step--1); color: var(--muted); text-align: center; }
+.buy { display: grid; gap: 20px; min-width: 0; }
+.lede { font-size: var(--step-1); color: var(--muted); max-width: 34ch; }
+.points { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.points li { display: flex; gap: 10px; align-items: baseline; }
+.points li::before { content: ""; flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--mustard); transform: translateY(1px); }
+
+fieldset.bundles { border: 0; padding: 0; margin: 0; display: grid; gap: 10px; }
+fieldset.bundles legend { margin-bottom: 10px; font-weight: 700; }
+.bundle input { position: absolute; opacity: 0; pointer-events: none; }
+.bundle label {
+  display: grid; grid-template-columns: auto 1fr auto; gap: 4px 14px; align-items: center;
+  padding: 14px 16px; border: 2px solid var(--line); border-radius: 12px; background: var(--surface); cursor: pointer;
+}
+.bundle label:hover { border-color: var(--muted); }
+.bundle input:checked + label { border-color: var(--forest); box-shadow: 0 0 0 1px var(--forest) inset; }
+.radio-dot { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--muted); grid-row: span 2; display: grid; place-items: center; }
+.bundle input:checked + label .radio-dot { border-color: var(--forest); }
+.bundle input:checked + label .radio-dot::after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--forest); }
+.b-name { font-weight: 700; }
+.b-price { font-family: var(--font-display); font-weight: 800; font-size: var(--step-1); text-align: right; font-variant-numeric: tabular-nums; }
+.b-sub { font-size: var(--step--1); color: var(--muted); }
+.b-save { font-size: var(--step--1); color: var(--forest); font-weight: 700; text-align: right; }
+.tag { display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 999px; background: var(--mustard-soft); color: var(--ink); font-size: 0.75rem; font-weight: 700; vertical-align: 2px; }
+
+.btn {
+  display: flex; justify-content: center; align-items: center; gap: 10px; width: 100%;
+  padding: 16px 22px; border-radius: 12px; border: 0; cursor: pointer;
+  background: var(--forest); color: var(--forest-ink); font: 700 var(--step-1)/1 var(--font-display); text-decoration: none;
+  transition: transform .15s ease, filter .15s ease;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn:active { transform: translateY(1px); }
+.btn small { font-family: var(--font-body); font-weight: 400; font-size: var(--step--1); opacity: .85; }
+.checkout-msg { background: var(--warn-bg); color: var(--warn-ink); border-radius: 12px; padding: 14px 16px; font-size: var(--step--1); }
+.assure { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: var(--step--1); color: var(--muted); }
+.assure div { border-top: 2px solid var(--line); padding-top: 8px; }
+.assure strong { display: block; color: var(--ink); }
+
+/* bands */
+.band { padding-block: 64px; }
+.band.alt { background: var(--surface); border-block: 1px solid var(--line); }
+.band-head { display: grid; gap: 10px; margin-bottom: 32px; max-width: 60ch; }
+.band-head p { color: var(--muted); }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; list-style: none; padding: 0; margin: 0; counter-reset: s; }
+.steps li { display: grid; gap: 10px; align-content: start; counter-increment: s; }
+.steps li::before {
+  content: counter(s); width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--mustard); color: #1B1300; font: 800 1.3rem/1 var(--font-display);
+}
+.steps p { color: var(--muted); }
+.surfaces { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 0; }
+.surfaces li { padding: 8px 14px; border-radius: 999px; background: var(--sage); font-weight: 700; font-size: var(--step--1); }
+.surfaces li.no { background: transparent; border: 1px dashed var(--line); color: var(--muted); font-weight: 400; }
+
+.table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 440px; }
+th, td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child th, tr:last-child td { border-bottom: 0; }
+thead th { font-size: var(--step--1); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+td.us { font-weight: 700; color: var(--forest); }
+.math { font-variant-numeric: tabular-nums; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.two-col > * { min-width: 0; }
+dl.specs { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 10px 20px; }
+dl.specs dt { font-weight: 700; }
+dl.specs dd { margin: 0; color: var(--muted); }
+.faq { display: grid; gap: 10px; }
+.faq details { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.faq summary { cursor: pointer; padding: 14px 16px; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font: 700 1.3rem/1 var(--font-display); color: var(--forest); }
+.faq details[open] summary::after { content: "–"; }
+.faq details p { padding: 0 16px 16px; color: var(--muted); }
+
+.cta-band { background: var(--forest); color: var(--forest-ink); }
+.cta-band .wrap { padding-block: 56px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; }
+.cta-band p { opacity: .9; }
+.cta-band .btn { width: auto; background: var(--mustard); color: #1B1300; }
+
+/* policy pages */
+.page .wrap { padding-block: 48px 72px; }
+.doc { max-width: 68ch; display: grid; gap: 16px; }
+.doc h2 { font-size: var(--step-2); margin-top: 16px; }
+.doc ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+.doc .updated { color: var(--muted); font-size: var(--step--1); }
+.back { font-weight: 700; text-decoration: none; }
+.copy-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.copy-row code { font-size: var(--step-1); padding: 8px 12px; border-radius: 8px; background: var(--sage); user-select: all; word-break: break-all; }
+.btn-ghost { padding: 8px 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; font: 700 var(--step--1) var(--font-body); }
+
+footer.site { border-top: 1px solid var(--line); background: var(--surface); font-size: var(--step--1); color: var(--muted); }
+footer.site .wrap { padding-block: 32px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 24px; }
+footer.site h3 { font-size: var(--step-0); color: var(--ink); margin-bottom: 8px; }
+footer.site ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+footer.site a { color: var(--muted); }
+
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: 1fr; gap: 28px; padding-block: 28px 40px; }
+  .steps, .two-col { grid-template-columns: 1fr; }
+  footer.site .wrap { grid-template-columns: 1fr 1fr; }
+  footer.site .wrap > :first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 480px) {
+  nav.main { gap: 14px; }
+  .assure { grid-template-columns: 1fr; }
+  .band { padding-block: 44px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+</head>
+<body>
+<div class="announce"><div class="wrap">Free US shipping on every order · 30-day returns</div></div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="#shop" data-view="shop" aria-label="Shedwell home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="9" width="26" height="14" rx="7" fill="var(--forest)"/><path d="M8 16h16" stroke="var(--mustard)" stroke-width="3" stroke-linecap="round" fill="none"/></svg>
+      Shedwell
+    </a>
+    <nav class="main" aria-label="Main">
+      <a href="#how" data-scroll="how">How it works</a>
+      <a href="#faq" data-scroll="faq">FAQ</a>
+      <a href="#shipping" data-view="shipping">Shipping</a>
+      <a href="#contact" data-view="contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="preview-note" id="previewNote" hidden>
+  <div class="wrap"><strong>Store preview.</strong> Payments aren't connected yet, so the Buy button won't take orders. Add your payment links in the store settings to go live.</div>
+</div>
+
+<main>
+<!-- ============ SHOP ============ -->
+<section data-page="shop">
+  <div class="hero">
+    <div class="wrap">
+      <div class="gallery">
+        <svg viewBox="0 0 520 400" role="img" aria-labelledby="rollerTitle">
+          <title id="rollerTitle">Drawing of the Shedwell roller: a handle on top, a fabric drum, and a fur chamber with a release button</title>
+          <ellipse cx="260" cy="350" rx="190" ry="18" fill="var(--line)"/>
+          <!-- handle -->
+          <path d="M200 120 C200 40 320 40 320 120" fill="none" stroke="var(--forest)" stroke-width="30" stroke-linecap="round"/>
+          <!-- chamber body -->
+          <rect x="90" y="110" width="340" height="150" rx="38" fill="var(--forest)"/>
+          <rect x="110" y="128" width="300" height="20" rx="10" fill="var(--forest-ink)" opacity=".18"/>
+          <!-- release button -->
+          <rect x="226" y="150" width="68" height="26" rx="13" fill="var(--mustard)"/>
+          <text x="260" y="168" text-anchor="middle" font-family="Atkinson Hyperlegible, sans-serif" font-size="13" font-weight="700" fill="#1B1300">OPEN</text>
+          <!-- drum -->
+          <rect x="105" y="230" width="310" height="110" rx="55" fill="var(--mustard-soft)" stroke="var(--mustard)" stroke-width="5"/>
+          <g stroke="var(--mustard)" stroke-width="3" stroke-linecap="round" opacity=".7">
+            <path d="M150 255 l-14 60"/><path d="M180 250 l-14 70"/><path d="M210 248 l-14 74"/><path d="M240 248 l-14 74"/>
+            <path d="M270 248 l-14 74"/><path d="M300 248 l-14 74"/><path d="M330 248 l-14 74"/><path d="M360 250 l-14 70"/><path d="M388 258 l-12 54"/>
+          </g>
+          <!-- fur tufts -->
+          <g fill="none" stroke="var(--muted)" stroke-width="3" stroke-linecap="round">
+            <path d="M40 330 q14 -22 28 0"/><path d="M58 318 q10 -18 22 2"/>
+            <path d="M452 334 q12 -20 26 0"/><path d="M470 322 q10 -16 20 2"/>
+          </g>
+        </svg>
+        <p class="caption">Illustration. Product photos coming soon.</p>
+      </div>
+
+      <div class="buy">
+        <div class="eyebrow">Reusable pet hair roller</div>
+        <h1>Pet hair off the couch. No sticky sheets.</h1>
+        <p class="lede">Roll it back and forth over fabric. The brush lifts the hair into a sealed chamber. Open the lid and empty it in the bin.</p>
+        <ul class="points">
+          <li>No sticky sheets and nothing to refill</li>
+          <li>No batteries or charging</li>
+          <li>Works on sofas, beds, car seats and coats</li>
+        </ul>
+
+        <fieldset class="bundles" id="bundles">
+          <legend>Choose your pack</legend>
+          <!-- options rendered from STORE.bundles -->
+        </fieldset>
+
+        <a class="btn" id="buyBtn" href="#" target="_blank" rel="noopener">
+          <span id="buyLabel">Buy now</span>
+        </a>
+        <div class="checkout-msg" id="checkoutMsg" role="status" hidden></div>
+
+        <div class="assure">
+          <div><strong>Free shipping</strong>Arrives in <span data-store="delivery"></span></div>
+          <div><strong>30-day returns</strong>Not working for you? Send it back.</div>
+          <div><strong>Secure checkout</strong>Card payments handled by Stripe</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="band alt" id="how">
+    <div class="wrap">
+      <div class="band-head">
+        <div class="eyebrow">How it works</div>
+        <h2>Three moves, no refills.</h2>
+      </div>
+      <ol class="steps">
+        <li><h3>Roll back and forth</h3><p>Use short strokes in both directions. The brush fabric grabs hair on the way out and the comb inside pulls it off on the way back.</p></li>
+        <li><h3>Press the release</h3><p>The chamber clicks open along the top so you can see what you picked up.</p></li>
+        <li><h3>Empty and go</h3><p>Tip the fur into the bin, close the lid, and it's ready for next time.</p></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="wrap">
+      <div class="band-head">
+        <div class="eyebrow">Where to use it</div>
+        <h2>Made for fabric with a nap.</h2>
+        <p>The brush needs a little texture to grip. It's at its best on upholstery and bedding.</p>
+      </div>
+      <ul class="surfaces">
+        <li>Sofas &amp; armchairs</li><li>Duvets &amp; blankets</li><li>Car seats</li><li>Dog &amp; cat beds</li>
+        <li>Wool coats</li><li>Carpet &amp; rugs (short pile)</li><li>Fabric headboards</li>
+        <li class="no">Not for skin or fur on your pet</li><li class="no">Not for hard floors</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="band alt">
+    <div class="wrap">
+      <div class="band-head">
+        <div class="eyebrow">Compared</div>
+        <h2>Why switch from sticky rollers.</h2>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col"></th><th scope="col">Shedwell roller</th><th scope="col">Adhesive lint roller</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Refills</th><td class="us">None, ever</td><td>New sheets every few uses</td></tr>
+            <tr><th scope="row">Waste</th><td class="us">Only the fur</td><td>Peeled sticky sheets</td></tr>
+            <tr><th scope="row">Big surfaces</th><td class="us">Built for sofas and beds</td><td>Fills up fast</td></tr>
+            <tr><th scope="row">Power</th><td class="us">None needed</td><td>None needed</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="band" id="faq">
+    <div class="wrap two-col">
+      <div>
+        <div class="band-head">
+          <div class="eyebrow">Details</div>
+          <h2>What's in the box.</h2>
+        </div>
+        <dl class="specs">
+          <dt>Includes</dt><dd>One roller per unit (packs of 2 or 3 ship together)</dd>
+          <dt>Materials</dt><dd>ABS plastic body, nylon brush fabric</dd>
+          <dt>Power</dt><dd>None. Fully manual.</dd>
+          <dt>Refills</dt><dd>Not needed</dd>
+          <dt>Care</dt><dd>Empty after each use. Wipe the brush with a dry cloth.</dd>
+          <dt>Ships</dt><dd>Within <span data-store="handling"></span>, arrives in <span data-store="delivery"></span></dd>
+        </dl>
+      </div>
+      <div>
+        <div class="band-head">
+          <div class="eyebrow">FAQ</div>
+          <h2>Questions.</h2>
+        </div>
+        <div class="faq">
+          <details><summary>Does it work on long-haired pets?</summary><p>Yes. Long hair and short hair both collect in the chamber. Very fine undercoat may take a few more passes.</p></details>
+          <details><summary>Can I use it directly on my dog or cat?</summary><p>No. It's for fabric only. The brush isn't designed for skin or coats.</p></details>
+          <details><summary>When will my order arrive?</summary><p>Orders leave our warehouse within <span data-store="handling"></span> and arrive in <span data-store="delivery"></span>. You'll get a tracking number by email when it ships.</p></details>
+          <details><summary>What if it doesn't work for me?</summary><p>You have 30 days from delivery to return it for a full refund of the item price. See our <a href="#returns" data-view="returns">returns policy</a>.</p></details>
+          <details><summary>Which countries do you ship to?</summary><p>We currently ship to addresses in the United States.</p></details>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <div class="wrap">
+      <div>
+        <h2>Stop buying sticky sheets.</h2>
+        <p>From <span data-store="fromPrice"></span> with free shipping.</p>
+      </div>
+      <a class="btn" href="#shop" data-scroll="bundles">Choose your pack</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHIPPING ============ -->
+<section class="page" data-page="shipping" hidden>
+  <div class="wrap"><article class="doc">
+    <a class="back" href="#shop" data-view="shop">← Back to shop</a>
+    <h1>Shipping policy</h1>
+    <p class="updated">Last updated <span data-store="updated"></span></p>
+    <p>Shipping is free on every order to addresses in the United States.</p>
+    <h2>Processing time</h2>
+    <p>Orders are processed within <span data-store="handling"></span> after payment, not counting weekends and US holidays. You'll get an email with your tracking number once your order ships.</p>
+    <h2>Delivery time</h2>
+    <p>Most orders arrive in <span data-store="delivery"></span> after they ship. Your order ships from one of our fulfillment partners' warehouses, which may be outside the United States. Delivery dates are estimates and not guaranteed.</p>
+    <h2>Packs of 2 or 3</h2>
+    <p>Multi-packs normally ship in one parcel. Occasionally items ship separately, in which case you'll get a tracking number for each.</p>
+    <h2>Wrong address</h2>
+    <p>Please check your shipping address at checkout. If you spot a mistake, email us within 12 hours of ordering and we'll fix it before it ships. We can't redirect an order once it's in transit.</p>
+    <h2>Lost or late orders</h2>
+    <p>If your tracking hasn't updated in 10 days, or your order hasn't arrived 30 days after shipping, contact us and we'll send a replacement or refund you in full.</p>
+    <h2>Customs</h2>
+    <p>Orders to US addresses don't incur customs fees for the customer. If any are charged, contact us and we'll refund them.</p>
+  </article></div>
+</section>
+
+<!-- ============ RETURNS ============ -->
+<section class="page" data-page="returns" hidden>
+  <div class="wrap"><article class="doc">
+    <a class="back" href="#shop" data-view="shop">← Back to shop</a>
+    <h1>Returns &amp; refunds</h1>
+    <p class="updated">Last updated <span data-store="updated"></span></p>
+    <p>If the roller isn't right for you, you can return it within 30 days of delivery for a refund of the item price.</p>
+    <h2>How to return</h2>
+    <ul>
+      <li>Email us at the address on our <a href="#contact" data-view="contact">contact page</a> with your order number and the reason for the return.</li>
+      <li>We'll reply within 2 business days with the return address and instructions.</li>
+      <li>Send the item back in its original packaging if you still have it. Please don't send items back before we've given you the return address.</li>
+    </ul>
+    <h2>Refunds</h2>
+    <p>Once your return arrives, we'll refund the original payment method within 5 business days. Your bank may take a few more days to show it. Return postage is paid by the customer unless the item arrived damaged or faulty.</p>
+    <h2>Damaged or faulty items</h2>
+    <p>If your roller arrives broken or stops working within 30 days, email us a photo. We'll send a free replacement or a full refund, and you won't need to send the item back.</p>
+    <h2>Cancellations</h2>
+    <p>You can cancel for a full refund any time before your order ships. Email us as soon as possible.</p>
+  </article></div>
+</section>
+
+<!-- ============ PRIVACY ============ -->
+<section class="page" data-page="privacy" hidden>
+  <div class="wrap"><article class="doc">
+    <a class="back" href="#shop" data-view="shop">← Back to shop</a>
+    <h1>Privacy policy</h1>
+    <p class="updated">Last updated <span data-store="updated"></span></p>
+    <p>This policy explains what information <span data-store="legalName"></span> ("we") collects when you shop at the Shedwell store, and how we use it.</p>
+    <h2>What we collect</h2>
+    <ul>
+      <li>Your name, email, shipping address and phone number, which you enter at checkout.</li>
+      <li>Payment details, which are collected and processed by Stripe. We never see or store your full card number.</li>
+      <li>Messages you send us.</li>
+    </ul>
+    <h2>How we use it</h2>
+    <ul>
+      <li>To fulfill your order, including sharing your name and shipping address with our fulfillment partner and the shipping carrier.</li>
+      <li>To send you order confirmations, tracking and replies to your messages.</li>
+      <li>To prevent fraud and meet our legal obligations.</li>
+    </ul>
+    <p>We don't sell your personal information. We only send marketing emails if you've opted in, and every one has an unsubscribe link.</p>
+    <h2>Payment processing</h2>
+    <p>Payments are handled by Stripe under Stripe's own privacy policy, available at stripe.com/privacy.</p>
+    <h2>How long we keep it</h2>
+    <p>We keep order records for as long as we need them for accounting and tax purposes, usually up to 7 years.</p>
+    <h2>Your choices</h2>
+    <p>You can ask us to show you, correct, or delete the information we hold about you by emailing us. We'll respond within 30 days.</p>
+  </article></div>
+</section>
+
+<!-- ============ TERMS ============ -->
+<section class="page" data-page="terms" hidden>
+  <div class="wrap"><article class="doc">
+    <a class="back" href="#shop" data-view="shop">← Back to shop</a>
+    <h1>Terms of service</h1>
+    <p class="updated">Last updated <span data-store="updated"></span></p>
+    <p>These terms apply when you buy from the Shedwell store, operated by <span data-store="legalName"></span>. By placing an order you agree to them.</p>
+    <h2>Orders and pricing</h2>
+    <p>All prices are in US dollars and include free US shipping. Sales tax, where it applies, is shown at checkout. We may cancel and fully refund an order if a product is out of stock or a price was listed in error.</p>
+    <h2>Products</h2>
+    <p>The roller is intended for removing hair and lint from fabric. Don't use it on people or animals. Keep small parts away from young children.</p>
+    <h2>Shipping and returns</h2>
+    <p>Our <a href="#shipping" data-view="shipping">shipping policy</a> and <a href="#returns" data-view="returns">returns policy</a> form part of these terms.</p>
+    <h2>Liability</h2>
+    <p>To the extent the law allows, our total liability for any order is limited to the amount you paid for it. Nothing in these terms limits rights you have under consumer protection law.</p>
+    <h2>Changes</h2>
+    <p>We may update these terms from time to time. The version on this page when you place your order applies to that order.</p>
+  </article></div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="page" data-page="contact" hidden>
+  <div class="wrap"><article class="doc">
+    <a class="back" href="#shop" data-view="shop">← Back to shop</a>
+    <h1>Contact us</h1>
+    <p>Questions about an order, a return, or the roller itself? Email us and include your order number if you have one. We reply within 1 business day, Monday to Friday.</p>
+    <div class="copy-row" id="emailRow">
+      <code id="emailText"></code>
+      <button class="btn-ghost" type="button" id="copyEmail">Copy address</button>
+    </div>
+    <p id="copyStatus" class="updated" role="status"></p>
+    <h2>Before you write</h2>
+    <ul>
+      <li>Tracking numbers are emailed when your order ships, usually within <span data-store="handling"></span>.</li>
+      <li>See our <a href="#shipping" data-view="shipping">shipping</a> and <a href="#returns" data-view="returns">returns</a> pages for delivery times and how returns work.</li>
+    </ul>
+  </article></div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <h3>Shedwell</h3>
+      <p>The reusable pet hair roller. Operated by <span data-store="legalName"></span>.</p>
+      <p>© <span id="year"></span> Shedwell</p>
+    </div>
+    <div>
+      <h3>Help</h3>
+      <ul>
+        <li><a href="#shipping" data-view="shipping">Shipping</a></li>
+        <li><a href="#returns" data-view="returns">Returns &amp; refunds</a></li>
+        <li><a href="#contact" data-view="contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Legal</h3>
+      <ul>
+        <li><a href="#privacy" data-view="privacy">Privacy policy</a></li>
+        <li><a href="#terms" data-view="terms">Terms of service</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ===== STORE SETTINGS: edit these to go live ===== */
+const STORE = {
+  // Paste a Stripe Payment Link for each pack (dashboard.stripe.com → Payment links).
+  // Turn on "Collect customers' shipping addresses" (US only) on each link.
+  paymentLinks: {
+    1: "https://buy.stripe.com/9B6eVf8d9eMtaEM8lF4ZG00",
+    2: "https://buy.stripe.com/cNieVf8d947P7sA0Td4ZG01",
+    3: "https://buy.stripe.com/5kQbJ3gJFeMtfZ6cBV4ZG02"
+  },
+  supportEmail: "alexpugh2006@gmail.com",                 // e.g. "help@shedwell.com"
+  legalName: "the store owner",     // your name or business name, used in the policies
+  handling: "1–3 business days",
+  delivery: "7–12 business days",
+  updated: "October 26, 2026",
+  bundles: [
+    { qty: 1, name: "1 roller", price: 24.95, sub: "For one room" },
+    { qty: 2, name: "2 rollers", price: 39.95, sub: "One for home, one for the car" },
+    { qty: 3, name: "3 rollers", price: 54.95, sub: "One for every floor", tag: "Best value" }
+  ]
+};
+/* ================================================= */
+
+const money = n => "$" + n.toFixed(2);
+const single = STORE.bundles[0].price;
+const live = Object.values(STORE.paymentLinks).some(Boolean);
+
+function fill() {
+  const values = {
+    handling: STORE.handling, delivery: STORE.delivery, updated: STORE.updated,
+    legalName: STORE.legalName, fromPrice: money(Math.min(...STORE.bundles.map(b => b.price / b.qty))) + " a roller"
+  };
+  document.querySelectorAll("[data-store]").forEach(el => { el.textContent = values[el.dataset.store] ?? ""; });
+  document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("previewNote").hidden = live;
+
+  const email = STORE.supportEmail;
+  document.getElementById("emailText").textContent = email || "Support email coming soon";
+  document.getElementById("copyEmail").hidden = !email;
+}
+
+function renderBundles() {
+  const fs = document.getElementById("bundles");
+  STORE.bundles.forEach((b, i) => {
+    const save = single * b.qty - b.price;
+    const each = b.qty > 1 ? ` · ${money(b.price / b.qty)} each` : "";
+    const div = document.createElement("div");
+    div.className = "bundle";
+    div.innerHTML = `
+      <input type="radio" name="bundle" id="bundle-${b.qty}" value="${b.qty}" ${i === 1 ? "checked" : ""}>
+      <label for="bundle-${b.qty}">
+        <span class="radio-dot" aria-hidden="true"></span>
+        <span class="b-name">${b.name}${b.tag ? `<span class="tag">${b.tag}</span>` : ""}</span>
+        <span class="b-price">${money(b.price)}</span>
+        <span class="b-sub">${b.sub}${each}</span>
+        <span class="b-save">${save > 0.004 ? "Save " + money(save) : ""}</span>
+      </label>`;
+    fs.appendChild(div);
+  });
+  fs.addEventListener("change", updateBuy);
+  updateBuy();
+}
+
+function selected() {
+  const q = Number(document.querySelector('input[name="bundle"]:checked').value);
+  return STORE.bundles.find(b => b.qty === q);
+}
+
+function updateBuy() {
+  const b = selected();
+  const btn = document.getElementById("buyBtn");
+  const link = STORE.paymentLinks[b.qty];
+  document.getElementById("buyLabel").textContent = `Buy ${b.name} · ${money(b.price)}`;
+  btn.href = link || "#shop";
+  btn.dataset.ready = link ? "1" : "";
+  document.getElementById("checkoutMsg").hidden = true;
+}
+
+document.getElementById("buyBtn").addEventListener("click", e => {
+  if (e.currentTarget.dataset.ready) return; // real link: let the browser open Stripe Checkout
+  e.preventDefault();
+  const msg = document.getElementById("checkoutMsg");
+  msg.textContent = "We're not taking orders just yet. Checkout opens soon, so please check back in a few days.";
+  msg.hidden = false;
+});
+
+/* views */
+const pages = [...document.querySelectorAll("[data-page]")];
+function show(view, scrollId) {
+  const target = pages.some(p => p.dataset.page === view) ? view : "shop";
+  pages.forEach(p => { p.hidden = p.dataset.page !== target; });
+  if (scrollId) {
+    const el = document.getElementById(scrollId);
+    if (el) { el.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" }); return; }
+  }
+  window.scrollTo(0, 0);
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest("a[data-view], a[data-scroll]");
+  if (!a) return;
+  e.preventDefault();
+  if (a.dataset.view) { show(a.dataset.view); try { history.replaceState(null, "", "#" + a.dataset.view); } catch (_) {} }
+  else show("shop", a.dataset.scroll);
+});
+window.addEventListener("hashchange", () => route());
+function route() {
+  const h = (location.hash || "").slice(1);
+  if (["how", "faq"].includes(h)) show("shop", h); else show(h || "shop");
+}
+
+document.getElementById("copyEmail").addEventListener("click", () => {
+  const status = document.getElementById("copyStatus");
+  const text = STORE.supportEmail;
+  const fallback = () => {
+    const r = document.createRange(); r.selectNodeContents(document.getElementById("emailText"));
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+    status.textContent = "Address selected. Press Ctrl+C or ⌘C to copy.";
+  };
+  try {
+    navigator.clipboard.writeText(text).then(() => { status.textContent = "Copied."; }, fallback);
+  } catch (_) { fallback(); }
+});
+
+fill();
+renderBundles();
+route();
+</script>
+
+</body>
+</html>
