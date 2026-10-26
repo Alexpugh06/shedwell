@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alexpugh06.github.io/shedwell/sitemap.xml
